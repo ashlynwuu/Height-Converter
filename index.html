@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+    </style>
+    <style>
+        body{
+            margin-top:70px;
+            background:#5fa16f;
+            color:#fff;
+            font-family:"Rubik", sans-serif;
+        }
+    </style>
+    <title>Height Converter</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="display-4 text-center mb-3"> Height Converter</h1>
+                <form>
+                    <div class="form-group">
+                        <input
+                        id="cmInput"
+                        type="number"
+                        class="form-control form-control-lg"
+                        placeholder="Enter Centimeters...">
+                    </div>
+                </form>
+                <div id="output">
+                    <div class="card bg-dark mb-2">
+                        <div class="card-body">
+                            <h4>Feet:</h4>
+                            <div id="ftOutput"></div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-dark mb-2">
+                        <div class="card-body">
+                            <h4>Inches:</h4>
+                            <div id="inOutput"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('output').style.visibility = 'hidden';
+        document.getElementById('cmInput').addEventListener('input', function(e){
+            document.getElementById('output').style.visibility = 'visible';
+            let cm = e.target.value;
+            console.log(cm);
+            document.getElementById('ftOutput').innerHTML
+            = Math.floor((cm*0.393700) / 12);
+            document.getElementById('inOutput').innerHTML
+            = Math.round((((cm*0.393700) / 12) - Math.floor((cm*0.393700) / 12)) * 12)
+        })
+    </script>
+  
+</body>
+</html>
